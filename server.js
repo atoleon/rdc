@@ -1,6 +1,7 @@
 const { Resend } = require("resend");
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -8,7 +9,7 @@ const resend = new Resend("re_XFCohrX2_22FajmGAwF4xBfcUfVtAUP9G");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "./public", "../public")));
 
 app.post("/contactform", async (req, res) => {
   const { name, email, subject, message } = req.body;
