@@ -27,5 +27,10 @@ app.post("/contactform", async (req, res) => {
   console.log({ data });
 });
 
+app.get("/prueba", (req, res) => {
+  res.send("<p>HOLA MUNDO</p>");
+  console.log("visit prueba");
+});
+
 app.listen(port);
 console.log("listening on port: ", port);
